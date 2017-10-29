@@ -224,13 +224,13 @@ void free_polygons()
 
 void read_file(string input)
 {
-    ifstream file(input);
+    ifstream file(input.c_str());
     
     while (!file.good())
     {
         cout << "Please enter a valid file: " << endl;
         cin >> input;
-        file.open(input);
+        file.open(input.c_str());
     }
     
     output_file_name = input;
@@ -715,7 +715,7 @@ void display_yz()
 void output_to_file()
 {
     fstream file;
-    file.open(output_file_name, fstream::out);
+    file.open(output_file_name.c_str(), fstream::out);
     //file.open("output.txt", fstream::out);
     file << numberOfPolygons;
     file << endl;
